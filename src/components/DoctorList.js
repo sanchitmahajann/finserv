@@ -41,20 +41,18 @@ function DoctorList({ doctors }) {
                   <span>{doctor.clinic.name}</span>
                 </div>
                 <div className="location-container">
-                  <div className="location-info" title={`${doctor.clinic.address.address_line1}, ${doctor.clinic.address.locality}, ${doctor.clinic.address.city}`}>
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>{doctor.clinic.address.locality}</span>
-                  </div>
-                  <button 
-                    className="copy-address-btn"
+                  <div 
+                    className="location-info"
                     onClick={() => copyToClipboard(
                       `${doctor.clinic.address.address_line1}, ${doctor.clinic.address.locality}, ${doctor.clinic.address.city}`,
                       doctor.id
                     )}
-                    title="Copy full address"
+                    data-copied={copiedId === doctor.id}
+                    title="Click to copy full address"
                   >
-                    <i className={`fas ${copiedId === doctor.id ? 'fa-check' : 'fa-copy'}`}></i>
-                  </button>
+                    <i className="fas fa-map-marker-alt"></i>
+                    <span>{doctor.clinic.address.locality}</span>
+                  </div>
                 </div>
               </div>
               <div className="doctor-actions">
