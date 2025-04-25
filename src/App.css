@@ -1,0 +1,519 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f2ef;
+}
+
+.app {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: var(--linkedin-blue);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-content {
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.app-main {
+  background-color: #f3f2ef;
+  min-height: calc(100vh - 60px);
+}
+
+.content-container {
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+}
+
+.search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 16px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #eef3f8;
+  transition: all 0.2s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.2);
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 8px 0;
+  list-style: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 12px;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
+
+.suggestion-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.suggestion-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.suggestion-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.suggestion-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggestion-specialty {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggestion-arrow {
+  color: #666;
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.filter-panel {
+  background: var(--linkedin-white);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.filter-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--linkedin-light-gray);
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.filter-section h3 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--linkedin-black);
+}
+
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--linkedin-gray);
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doctor-card {
+  background: var(--linkedin-white);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.doctor-info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+}
+
+.doctor-photo-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.doctor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doctor-details h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.doctor-role {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.doctor-qualification {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.doctor-stats {
+  color: #666;
+  font-size: 14px;
+}
+
+.doctor-clinic {
+  margin-top: 8px;
+}
+
+.clinic-info,
+.location-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 4px;
+  cursor: help;
+  position: relative;
+  padding-right: 140px;
+}
+
+.clinic-info i,
+.location-info i {
+  color: #666;
+  font-size: 14px;
+  width: 16px;
+}
+
+.location-info::after {
+  content: "👁️ Hover for full address";
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  color: #0a66c2;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.location-info:hover::after {
+  opacity: 1;
+}
+
+.location-info i {
+  color: #0a66c2;
+  transition: color 0.2s ease;
+}
+
+.location-info:hover i,
+.location-info:hover span {
+  color: #0a66c2;
+}
+
+.doctor-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.fee {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.book-appointment {
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.book-appointment:hover {
+  background-color: #004182;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .doctor-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .doctor-photo-container {
+    margin: 0 auto;
+  }
+  
+  .doctor-actions {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .fee {
+    text-align: center;
+  }
+}
+
+.specialties-container {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--linkedin-light-gray);
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.specialties-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.specialties-container::-webkit-scrollbar-track {
+  background: var(--linkedin-light-gray);
+  border-radius: 4px;
+}
+
+.specialties-container::-webkit-scrollbar-thumb {
+  background: var(--linkedin-gray);
+  border-radius: 4px;
+}
+
+.specialties-container::-webkit-scrollbar-thumb:hover {
+  background: var(--linkedin-blue);
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--linkedin-gray);
+  padding: 4px 0;
+}
+
+.doctor-credentials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.doctor-credentials .separator {
+  color: #ccc;
+}
+
+.doctor-credentials p {
+  margin: 0;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filter-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.reset-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.reset-button i {
+  font-size: 12px;
+}
+
+.highlight {
+  background-color: rgba(10, 102, 194, 0.1);
+  color: #0a66c2;
+  font-weight: 600;
+}
+
+.location-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.copy-address-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  transition: all 0.2s ease;
+}
+
+.copy-address-btn:hover {
+  background-color: rgba(10, 102, 194, 0.1);
+  color: #0a66c2;
+}
+
+.copy-address-btn i {
+  font-size: 14px;
+}
+
+.copy-address-btn i.fa-check {
+  color: #0a8a0a;
+}
+
+.location-info span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
